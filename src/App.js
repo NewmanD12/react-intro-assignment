@@ -25,7 +25,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Form addMovie={this.addMovie}/>
+        <Form 
+          addMovie={this.addMovie}
+          years = {this.years}  
+        />
         <Table 
           movieData = {this.state.movies}
           removeMovie = {this.removeMovie}

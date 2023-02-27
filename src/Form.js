@@ -1,5 +1,32 @@
 import React, { Component } from 'react';
 
+// const years = []
+// for(let i = 1850; i < 2024; i++){
+//     years.push(i)
+// }
+
+// function handleChange(e) {
+//     console.log('something')
+// }
+
+// const YearOptions = () => {
+//     const options = years.map((year, index) => {
+//         return(
+//             <option 
+//             type='text'
+//             id = 'year'
+//             name = 'year'
+//             value = {year}
+//             key = {index}
+//             onChange = {handleChange}
+//             >
+//                 {year}
+//             </option>
+//         )
+//     })
+//     return <select >{options}</select>
+// }
+
 class Form extends Component {
 
     constructor(props){
@@ -23,15 +50,17 @@ class Form extends Component {
     onFormSubmit = (event) => {
         //standard code for onSubmits 
         event.preventDefault();
-        
-        //set the current state of our form to the handle submit
+
+        this.setState({
+            dateAdded : new Date().toString()
+        })
         this.props.addMovie(this.state);
 
         //clear inputs by setting form to inital state
         this.setState(this.initialState);
     }
 
-    handleChange = e => {
+    handleChange = (e) => {
         const { name, value } = e.target
 
         this.setState({
@@ -39,9 +68,8 @@ class Form extends Component {
         })
     }
 
-
     render() {
-        const { title, actors, plot, imbdRating, director, year, dateAdded } = this.state;
+        const { title, actors, plot, imbdRating, director, year } = this.state;
         return (
             <form onSubmit={this.onFormSubmit}>
                 <label htmlFor=''>Title:</label>
@@ -81,23 +109,25 @@ class Form extends Component {
                     onChange={this.handleChange}
                 /><br/>
                 <label htmlFor=''>Year:</label>
-                <input type='text'
-                    id = 'year'
+                <input
+                    type = 'text'
                     name = 'year'
                     value = {year}
-                    onChange={this.handleChange}
-                ></input><br/>
-                <label htmlFor=''>Date Added:</label>
-                <input type='date'
-                    id = 'dateAdded'
-                    name = 'dateAdded'
-                    value = {dateAdded}
-                    onChange={this.handleChange}
-                /><br/>
+                    onChange = {this.handleChange}
+                >
+                </input>
                 <button type='submit'>Submit</button>
             </form>
         );
     }
 }
+
+// <input type='text'
+// id = 'year'
+// name = 'year'
+// value = {year}
+// onChange={this.handleChange}
+// ></input><br/>
+
 
 export default Form
