@@ -37,10 +37,10 @@ class Form extends Component {
             title : '',
             actors : '',
             plot : '',
-            imbdRating : '',
+            imbdRating : 0.0,
             director : '',
-            year : '',
-            dateAdded : ''
+            year : 0,
+            dateAdded : new Date().toLocaleDateString()
         };
 
         //set our initial state to state.
@@ -52,7 +52,7 @@ class Form extends Component {
         event.preventDefault();
 
         this.setState({
-            dateAdded : new Date().toString()
+            dateAdded : new Date().toLocaleDateString()
         })
         this.props.addMovie(this.state);
 
