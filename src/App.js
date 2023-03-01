@@ -108,22 +108,32 @@ class App extends Component {
         dateAdded: new Date().toLocaleDateString(),
       }
     ],
-    searchResults : [], 
-    looking : false
+    searchResults : []
   }
 
   addMovie = movie => {
     this.setState({movies : [...this.state.movies, movie]})
   }
 
-  removeMovie = (index) => {
+  removeMovie = (movieTitle) => {
     const { movies } = this.state
 
     this.setState({
-      movies : movies.filter((_, i) => {
-        return i !== index
+      movies : movies.filter((movie) => {
+        return movie.title !== movieTitle
       })
     })
+
+    this.setState({
+      searchResults : movies.filter((movie) =>{
+        return movie.title !== movieTitle
+      })
+    })
+
+    const inputField = document.getElementById('searchCriteria')
+    console.log(inputField)
+    inputField.value = ''
+    
   }
 
   filterMovie = (search) => {
@@ -134,8 +144,7 @@ class App extends Component {
       const searchCriteria = search.searchCriteria.toLowerCase()
       const results = movies.filter((movie) => movie.director.toLowerCase().includes(searchCriteria))
       this.setState({
-        searchResults : results,
-        looking : true
+        searchResults : results
       })
       // console.log(this.state)
     }
@@ -147,7 +156,6 @@ class App extends Component {
       })
     }
     else if(searchCategory === 'year') {
-      // console.log(searchCriteria)
       const searchCriteria = search.searchCriteria
       const results = movies.filter((movie) => movie.year.toString().includes(searchCriteria))
       this.setState({
@@ -156,7 +164,6 @@ class App extends Component {
     }
     else if(searchCategory === 'title'){
       const searchCriteria = search.searchCriteria.toLowerCase()
-      // console.log(searchCriteria)
       const results = movies.filter((movie) => movie.title.toString().toLowerCase().includes(searchCriteria))
       this.setState({
         searchResults : results
@@ -164,15 +171,12 @@ class App extends Component {
     }
     else if(searchCategory === 'plot'){
       const searchCriteria = search.searchCriteria.toLowerCase()
-      // console.log(searchCriteria)
       const results = movies.filter((movie) => movie.plot.toString().toLowerCase().includes(searchCriteria))
       this.setState({
         searchResults : results
       })
     }
   }
-
-
 
 
   render() {
@@ -187,7 +191,7 @@ class App extends Component {
       />
       <Form 
         addMovie={this.addMovie}
-        years = {this.years}  
+        years = {this.years}
       />
       </div>
     );

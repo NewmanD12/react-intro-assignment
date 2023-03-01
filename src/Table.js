@@ -18,26 +18,22 @@ const TableHeader = () => {
 }
 
 const TableBody = (props) => {
-
-    // console.log(props.searchMovies)
     if(props.searchMovies.length > 0) {
         const rows = props.searchMovies.map((row, index) => {
             return (
                 <tr key={index}>
-                <td>{row.title}</td>
+                    <td>{row.title}</td>
                     <td>{row.actors.join(', ')}</td>
                     <td>{row.plot}</td>
                     <td>{row.imdbRating}</td>
                     <td>{row.director}</td>
                     <td>{row.year}</td>
                     <td>{row.dateAdded}</td>
+                    <td><button onClick={() => props.removeMovie(row.title)}>Delete</button></td>
                 </tr>
             )
         })
         return <tbody>{rows}</tbody>
-    }
-    if(props.looking === true && props.searchMovies.length < 1) {
-        console.log('searching but none found')
     }
     const rows = props.data.map((row, index) => {
         return (
@@ -49,7 +45,7 @@ const TableBody = (props) => {
                 <td>{row.director}</td>
                 <td>{row.year}</td>
                 <td>{row.dateAdded}</td>
-                <td><button onClick={() => props.removeMovie(index)}>Delete</button></td>
+                <td><button onClick={() => props.removeMovie(row.title)}>Delete</button></td>
             </tr>
         )
     })
