@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import Container from 'react-bootstrap/Container'
+// import Row from 'react-bootstrap/Row';
+// import Col from 'react-bootstrap/Col';
 
 const searchToPass = {
     searchCategory : 'director',
@@ -91,9 +94,9 @@ class Search extends Component {
         }   = this.props
 
         return (
-            <div onChange={onChangeValue}>
+            <Container fluid='md' onChange={onChangeValue}>
                 <SearchBody filterMovie={filterMovie}/>
-            </div>
+            </Container>
         )
     }
 }

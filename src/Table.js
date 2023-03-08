@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Table from 'react-bootstrap/Table';
 
 
 const TableHeader = () => {
@@ -8,10 +9,12 @@ const TableHeader = () => {
                 <th>Title</th>
                 <th>Actors</th>
                 <th>Plot</th>
+                <th>Genre</th>
                 <th>IMBD Rating</th>
                 <th>Director</th>
                 <th>Year</th>
                 <th>Date Added</th>
+                <th>Delete</th>
             </tr>
         </thead>
     )
@@ -23,8 +26,9 @@ const TableBody = (props) => {
             return (
                 <tr key={index}>
                     <td>{row.title}</td>
-                    <td>{row.actors.join(', ')}</td>
+                    <td>{row.actors}</td>
                     <td>{row.plot}</td>
+                    <td>{row.genre}</td>
                     <td>{row.imdbRating}</td>
                     <td>{row.director}</td>
                     <td>{row.year}</td>
@@ -39,8 +43,9 @@ const TableBody = (props) => {
         return (
             <tr key={index}>
                 <td>{row.title}</td>
-                <td>{row.actors.join(', ')}</td>
+                <td>{row.actors}</td>
                 <td>{row.plot}</td>
+                <td>{row.genre}</td>
                 <td>{row.imdbRating}</td>
                 <td>{row.director}</td>
                 <td>{row.year}</td>
@@ -54,7 +59,7 @@ const TableBody = (props) => {
 
 }
 
-class Table extends Component {
+class MovieTable extends Component {
     render() {
 
         const {
@@ -65,16 +70,16 @@ class Table extends Component {
 
 
         return (
-            <table>
+            <Table striped bordered hover variant="dark">
                 <TableHeader />
                 <TableBody 
                     data={movieData}
                     searchMovies={searchMovies}
                     removeMovie={removeMovie}
                 />
-            </table>
+            </Table>
         )
     }
 }
 
-export default Table
+export default MovieTable

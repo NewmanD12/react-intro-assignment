@@ -1,0 +1,65 @@
+  // const addMovie = movie => {
+  //   setMovies([...movies, movie])
+  // }
+
+  // const removeMovie = (movieTitle) => {
+  //   const { movies } = this.state
+
+  //   this.setState({
+  //     movies : movies.filter((movie) => {
+  //       return movie.title !== movieTitle
+  //     })
+  //   })
+
+  //   this.setState({
+  //     searchResults : movies.filter((movie) =>{
+  //       return movie.title !== movieTitle
+  //     })
+  //   })
+
+  //   const inputField = document.getElementById('searchCriteria')
+  //   inputField.value = ''
+    
+  // }
+
+  // const filterMovie = (search) => {
+  //   const searchCategory = search.searchCategory
+
+  //   if(searchCategory === 'director'){
+  //     const searchCriteria = search.searchCriteria.toLowerCase()
+  //     const results = movies.filter((movie) => movie.director.toLowerCase().includes(searchCriteria))
+  //     setSearchResults(results)
+  //   }
+  //   else if(searchCategory === 'actor') {
+  //     const searchCriteria = search.searchCriteria.toLowerCase()
+  //     const results = movies.filter((movie) => movie.actors.toString().toLowerCase().includes(searchCriteria))
+  //     // this.setState({
+  //     //   searchResults : results
+  //     // })
+  //     setSearchResults(results)
+  //   }
+  //   else if(searchCategory === 'year') {
+  //     const searchCriteria = search.searchCriteria
+  //     const results = movies.filter((movie) => movie.year.toString().includes(searchCriteria))
+  //     // this.setState({
+  //     //   searchResults : results
+  //     // })
+  //     setSearchResults(results)
+  //   }
+  //   else if(searchCategory === 'title'){
+  //     const searchCriteria = search.searchCriteria.toLowerCase()
+  //     const results = movies.filter((movie) => movie.title.toString().toLowerCase().includes(searchCriteria))
+  //     // this.setState({
+  //     //   searchResults : results
+  //     // })
+  //     setSearchResults(results)
+  //   }
+  //   else if(searchCategory === 'plot'){
+  //     const searchCriteria = search.searchCriteria.toLowerCase()
+  //     const results = movies.filter((movie) => movie.plot.toString().toLowerCase().includes(searchCriteria))
+  //     // this.setState({
+  //     //   searchResults : results
+  //     // })
+  //     setSearchResults(results)
+  //   }
+  // }

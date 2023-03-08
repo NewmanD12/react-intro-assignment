@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import Form from 'react-bootstrap/Form'
 
 // const years = []
 // for(let i = 1850; i < 2024; i++){
@@ -27,7 +28,7 @@ import React, { Component } from 'react';
 //     return <select >{options}</select>
 // }
 
-class Form extends Component {
+class AddForm extends Component {
 
     constructor(props){
         super(props); //inheriting props from Component
@@ -55,6 +56,7 @@ class Form extends Component {
             dateAdded : new Date().toLocaleDateString()
         })
         this.props.addMovie(this.state);
+
 
         //clear inputs by setting form to inital state
         this.setState(this.initialState);
@@ -122,12 +124,4 @@ class Form extends Component {
     }
 }
 
-// <input type='text'
-// id = 'year'
-// name = 'year'
-// value = {year}
-// onChange={this.handleChange}
-// ></input><br/>
-
-
-export default Form
+export default AddForm
