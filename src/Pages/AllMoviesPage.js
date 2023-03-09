@@ -2,6 +2,7 @@ import { useNavigate, useOutletContext } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Table from 'react-bootstrap/Table';
 
 const AllMoviesPage = () => {
     
@@ -41,10 +42,10 @@ const AllMoviesPage = () => {
             <Row className="justify-content-center">
                 <Col className="text-center">
                     <h1>This is a list of all of the movies.</h1>
-                    <table>
+                    <Table striped bordered hover variant="dark">
                         <TableHead />
                         <TableBody />
-                    </table>                
+                    </Table>                
                 </Col>
             </Row>
         </Container>
