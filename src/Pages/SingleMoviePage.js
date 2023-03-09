@@ -28,8 +28,7 @@ const SingleMoviePage = () => {
                             <Card.Text>Year: {movie.year}</Card.Text>
                             <Card.Text>Director: {movie.director}</Card.Text>
                         </Card.Body>
-                    </Card>
-                
+                    </Card>   
                 </Col>
             </Row>
         </Container>

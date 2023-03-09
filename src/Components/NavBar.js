@@ -5,17 +5,13 @@ import Container from 'react-bootstrap/Container'
 
 const NavBar = () => {
     return (
-        // <div>
-        //     <Link to="/">Home</Link>
-        //     <Link to="/all-movies">All Movies</Link>
-        // </div>
-
         <Navbar bg="dark" variant="dark">
             <Container fluid className="justify-content-center">
                 <Row>
                     <Nav className="me-auto">
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/all-movies">All Movies</Nav.Link>
+                        <Nav.Link href="/add-movie">Add New Movie</Nav.Link>
                     </Nav>
                 </Row>
             </Container>

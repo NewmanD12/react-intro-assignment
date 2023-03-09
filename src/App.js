@@ -9,7 +9,7 @@ const DATA_URL = "https://raw.githubusercontent.com/dd-code-immersives/movie-pro
 
 function App() {
   const [movies, setMovies] = useState([])
-  // const [searchResults, setSearchResults] = useState([])
+  
 
   useEffect(() => {
     fetch(DATA_URL)
@@ -19,10 +19,24 @@ function App() {
     })
   }, [])
 
+  const handleAddMovie = (title, actors, plot, genre, imdbRating, year, director) => {
+    const newMovie = {
+      title,
+      actors,
+      plot,
+      genre,
+      imdbRating,
+      year,
+      director
+    }
+
+    setMovies([...movies, newMovie])
+  }
+
   return (
     <div className="App">
       <NavBar />
-      <Outlet context={[movies]}/>
+      <Outlet context={[movies, handleAddMovie]}/>
     </div>
   );
   

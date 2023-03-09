@@ -14,6 +14,7 @@ import App from './App';
 import HomePage from './Pages/HomePage';
 import AllMoviesPage from './Pages/AllMoviesPage';
 import SingleMoviePage from './Pages/SingleMoviePage';
+import AddNewMoviePage from './Pages/AddNewMoviePage';
 
 
 
@@ -33,8 +34,11 @@ const router = createBrowserRouter([
             {
                 path: '/single-movie/:filmTitle',
                 element: <SingleMoviePage />
+            },
+            {
+                path: '/add-movie',
+                element : <AddNewMoviePage />
             }
-
         ]
     }
 ])
