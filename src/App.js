@@ -8,7 +8,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const DATA_URL = "https://raw.githubusercontent.com/dd-code-immersives/movie-project/main/react-intro-form/data/movies.json"
 
 function App() {
-  const [movies, setMovies] = useState([])
+
+  const [movies, setMovies] = useState([]);
+  const [searchInput, setSearchInput] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
   
 
   useEffect(() => {
@@ -33,10 +36,21 @@ function App() {
     setMovies([...movies, newMovie])
   }
 
+  const handleSearchInput = (input) => {
+    let title = input.target.value.toLowerCase()
+    console.log(title)
+    // setSearchInput(title)
+
+    const foundMovies = movies.filter((movie) => {
+      return movie.title.toLowerCase().includes(searchInput)
+    })
+    // setSearchResults(foundMovies)
+  }
+
   return (
     <div className="App">
       <NavBar />
-      <Outlet context={[movies, handleAddMovie]}/>
+      <Outlet context={[movies, handleAddMovie, handleSearchInput]}/>
     </div>
   );
   

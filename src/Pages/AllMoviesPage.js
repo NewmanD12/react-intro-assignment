@@ -4,16 +4,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
 import Form from 'react-bootstrap/Form';
-import { useState } from "react";
 
 const AllMoviesPage = () => {
     
 
-    const [movies] = useOutletContext()
+    const [movies, , handleSearchInput] = useOutletContext()
     const navigate = useNavigate()
-    const [searchInput, setSearchInput] = useState('')
-    const [searchResults, setSearchResults] = useState([])
-    
 
     const TableHead = () => {
         return(
@@ -27,6 +23,7 @@ const AllMoviesPage = () => {
 
     const TableBody = () => {
 
+
         const rows = movies.map((movie, index) => {
             
             return(
@@ -37,19 +34,14 @@ const AllMoviesPage = () => {
                 </tr>
             )
         })
+        // console.log(rows)
 
         return <tbody>{rows}</tbody>
     }
 
-    const onFormChange = (e) => {
-        console.log(e.target.value)
-        setSearchInput(e.target.value)
-        // console.log(setSearchInput(e.target.value))
-    }
-
     const SearchBar = () => {
         return(
-            <Form.Group className="mb-3" variant='dark' onChange={onFormChange} >
+            <Form.Group className="m-3" variant='dark'>
                 <Row>
                     <Form.Label column='lg' lg={4}>Search: </Form.Label>
                     <Col>
@@ -59,6 +51,7 @@ const AllMoviesPage = () => {
                             placeholder="Enter Your Seach Criteria" 
                             name='searchInput'
                             id='searchInput'
+                            onChange={handleSearchInput}
                         />            
                     </Col>
                 </Row>
