@@ -3,12 +3,12 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
-import Form from 'react-bootstrap/Form';
+import SearchBar from "../Components/SearchBar";
 
 const AllMoviesPage = () => {
     
 
-    const [movies, , handleSearchInput] = useOutletContext()
+    const [movies, , , searchResults] = useOutletContext()
     const navigate = useNavigate()
 
     const TableHead = () => {
@@ -22,8 +22,20 @@ const AllMoviesPage = () => {
     }
 
     const TableBody = () => {
-
-
+        if(searchResults.length > 0){
+            
+            const rows = searchResults.map((movie, index) => {
+                return(
+                    <tr key={index}>
+                        <td onClick={() => {
+                            navigate(`/single-movie/${movie.title}`)
+                        }}>{movie.title}</td>
+                    </tr>
+                )
+            })
+            return <tbody>{rows}</tbody>
+        }
+        
         const rows = movies.map((movie, index) => {
             
             return(
@@ -39,25 +51,7 @@ const AllMoviesPage = () => {
         return <tbody>{rows}</tbody>
     }
 
-    const SearchBar = () => {
-        return(
-            <Form.Group className="m-3" variant='dark'>
-                <Row>
-                    <Form.Label column='lg' lg={4}>Search: </Form.Label>
-                    <Col>
-                        <Form.Control 
-                            size="lg" 
-                            type="text" 
-                            placeholder="Enter Your Seach Criteria" 
-                            name='searchInput'
-                            id='searchInput'
-                            onChange={handleSearchInput}
-                        />            
-                    </Col>
-                </Row>
-            </Form.Group>
-        )
-    }
+
 
 
     return(

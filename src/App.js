@@ -10,7 +10,6 @@ const DATA_URL = "https://raw.githubusercontent.com/dd-code-immersives/movie-pro
 function App() {
 
   const [movies, setMovies] = useState([]);
-  const [searchInput, setSearchInput] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   
 
@@ -36,21 +35,12 @@ function App() {
     setMovies([...movies, newMovie])
   }
 
-  const handleSearchInput = (input) => {
-    let title = input.target.value.toLowerCase()
-    console.log(title)
-    // setSearchInput(title)
 
-    const foundMovies = movies.filter((movie) => {
-      return movie.title.toLowerCase().includes(searchInput)
-    })
-    // setSearchResults(foundMovies)
-  }
 
   return (
     <div className="App">
       <NavBar />
-      <Outlet context={[movies, handleAddMovie, handleSearchInput]}/>
+      <Outlet context={[movies, handleAddMovie, setSearchResults, searchResults]}/>
     </div>
   );
   
