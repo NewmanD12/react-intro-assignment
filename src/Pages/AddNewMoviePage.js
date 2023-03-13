@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/Button";
+import './AddNewMoviePage.css'
 
 //let's use react-router-dom's context provider
 // to pass info to child routes
@@ -22,7 +23,7 @@ const AddNewMoviePage = () => {
     const [director, setDirector] = useState('')
 
     return(
-        <Container >
+        <Container id="add-main" fluid>
             <Row className="justify-content-md-center">
                 <Col lg='5'>
                     <h1>Add a New Movie</h1>

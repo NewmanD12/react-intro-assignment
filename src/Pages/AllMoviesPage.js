@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
 import SearchBar from "../Components/SearchBar";
+import './AllMoviesPage.css'
 
 const AllMoviesPage = () => {
     
@@ -55,7 +56,7 @@ const AllMoviesPage = () => {
 
 
     return(
-        <Container fluid>
+        <Container id='all-main' fluid>
             <Row className="justify-content-center">
                 <Col className="text-center" lg='5'>
                     <SearchBar />
