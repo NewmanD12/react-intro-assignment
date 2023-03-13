@@ -22,6 +22,7 @@ const AllMoviesPage = () => {
     }
 
     const TableBody = () => {
+        // console.log(movies)
         if(searchResults.length > 0){
             
             const rows = searchResults.map((movie, index) => {
@@ -29,7 +30,7 @@ const AllMoviesPage = () => {
                     <tr key={index}>
                         <td onClick={() => {
                             navigate(`/single-movie/${movie.title}`)
-                        }}>{movie.title}</td>
+                        }}>{movie.titleText.text}</td>
                     </tr>
                 )
             })
@@ -41,8 +42,8 @@ const AllMoviesPage = () => {
             return(
                 <tr key={index}>
                     <td onClick={() => {
-                        navigate(`/single-movie/${movie.title}`)
-                    }}>{movie.title}</td>
+                        navigate(`/single-movie/${movie.titleText.text}`)
+                    }}>{movie.titleText.text}</td>
                 </tr>
             )
         })

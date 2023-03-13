@@ -9,10 +9,14 @@ const SingleMoviePage = () => {
     const allMovies = useOutletContext()
     const params = useParams()
 
+    // console.log(allMovies[0])
+
     let movie = allMovies[0].find((movie) =>{
-            return movie.title === params.filmTitle
+            return movie.titleText.title === params.filmTitle
         }
     )
+
+    console.log(movie)
 
     return(
         <Container fluid>
@@ -20,13 +24,7 @@ const SingleMoviePage = () => {
                 <Col>
                     <Card className="text-center">
                         <Card.Body>
-                            <Card.Title>{movie.title}</Card.Title>
-                            <Card.Text>Actors: {movie.actors.join(', ')}</Card.Text>
-                            <Card.Text>Plot: {movie.plot}</Card.Text>
-                            <Card.Text>Genre: {movie.genre}</Card.Text>
-                            <Card.Text>IMDB Rating: {movie.imdbRating}</Card.Text>
-                            <Card.Text>Year: {movie.year}</Card.Text>
-                            <Card.Text>Director: {movie.director}</Card.Text>
+                            
                         </Card.Body>
                     </Card>   
                 </Col>
@@ -37,5 +35,13 @@ const SingleMoviePage = () => {
     )
 
 }
+
+// <Card.Title>{movie.title}</Card.Title>
+//                             <Card.Text>Actors: {movie.actors.join(', ')}</Card.Text>
+//                             <Card.Text>Plot: {movie.plot}</Card.Text>
+//                             <Card.Text>Genre: {movie.genre}</Card.Text>
+//                             <Card.Text>IMDB Rating: {movie.imdbRating}</Card.Text>
+//                             <Card.Text>Year: {movie.year}</Card.Text>
+//                             <Card.Text>Director: {movie.director}</Card.Text>
 
 export default SingleMoviePage

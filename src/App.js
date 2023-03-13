@@ -7,19 +7,32 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const DATA_URL = "https://raw.githubusercontent.com/dd-code-immersives/movie-project/main/react-intro-form/data/movies.json"
 
+const url = 'https://moviesdatabase.p.rapidapi.com/titles?limit=50';
+
+const options = {
+  method: 'GET',
+  headers: {
+    'X-RapidAPI-Key': '0c7a345f28msh1941853a14d2fdfp1d2b06jsn04101928ad52',
+    'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
+  }
+};
+
+
 function App() {
 
   const [movies, setMovies] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   
 
+  
+
   useEffect(() => {
-    fetch(DATA_URL)
+    fetch(url, options)
     .then((result) => result.json())
-    .then((result) => {
-      setMovies(result)
+    .then((json) => {
+      setMovies(json.results)
     })
-  }, [])
+  }, [movies])
 
   const handleAddMovie = (title, actors, plot, genre, imdbRating, year, director) => {
     const newMovie = {
